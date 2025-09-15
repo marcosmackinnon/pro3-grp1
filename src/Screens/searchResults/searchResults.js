@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import React from 'react';
+import Card from '../../Components/Card/Card';
 
 
 class searchResults extends Component{
