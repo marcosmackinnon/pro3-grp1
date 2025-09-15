@@ -1,7 +1,7 @@
 import { Component } from "react";
 import React from "react";
 import "./Card.css"
-
+import { Link } from "react-router-dom";
 
 class Card extends Component{
     constructor(props) {
@@ -26,7 +26,7 @@ class Card extends Component{
                 <div class="cardBody">
                     <h5 class="card-title"> {this.props.data.title}</h5>
                     <p class="card-text">{this.props.data.overview}</p>
-                    <a href="/detalle/:id" class="btn btn-primary">Ver más</a>
+                    <Link to={`/detalle/${this.props.data.id}`} class="btn btn-primary">Ver más</Link>
                 </div>
             </article>
 
