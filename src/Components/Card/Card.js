@@ -26,8 +26,7 @@ class Card extends Component{
                 <div class="cardBody">
                     <h5 class="card-title"> {this.props.data.title}</h5>
                     <p class="card-text">{this.props.data.overview}</p>
-                    <a href="movie.html" class="btn btn-primary">Ver más</a>
-                    <a href="" class="btn alert-primary">🩶</a>
+                    <a href="/detalle/:id" class="btn btn-primary">Ver más</a>
                 </div>
             </article>
 
