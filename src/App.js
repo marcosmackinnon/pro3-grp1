@@ -5,7 +5,6 @@ import './App.css';
 import Home from './Screens/Home/Home';
 import Error404 from './Screens/Error404/Error404';
 import Detalle from "./Screens/Detalle/Detalle";
-import Buscador from "./Screens/Buscador/Buscador";
 import searchResults from './Screens/searchResults/searchResults';
 
 function App() {
