@@ -11,7 +11,7 @@ function App() {
       
       <Switch>
         <Route component = {Home} path = '/' exact = {true}/>
-        <Route component = {Detalle} path = '/detalle/:id' exact = {true}/>
+        <Route component = {Detalle} path = '/detalle/:id' />
         <Route component = {Error404} path = '' />
       </Switch>
     </div>

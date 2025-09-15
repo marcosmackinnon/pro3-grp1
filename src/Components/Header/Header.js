@@ -1,6 +1,8 @@
 import { Component } from "react";
 import React from "react";
 import "./Header.css"
+import { Link } from "react-router-dom";
+import Formulario from "../Formulario/Formulario";
 
 class Header extends Component{
     constructor(props) {
@@ -21,26 +23,24 @@ class Header extends Component{
             <h1>UdeSA Movies</h1>
 
             <nav>
-                <ul class="nav nav-tabs my-4">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                <ul className="nav nav-tabs my-4">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/">Home</Link>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="movies.html">Películas</a>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/movies">Películas</Link>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="series.html">Series</a>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/series">Series</Link>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="favorites.html">Favoritas</a>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/favorites">Favoritas</Link>
                     </li>
                 </ul>
 
-                <form class="search-form" action="results.html" method="get">
-                    <input type="text" class="" name="searchData" placeholder="Buscar..." value=""/> 
-                    <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-                </form>
+            <Formulario />
             </nav>
+            
 
             </React.Fragment>
         )
