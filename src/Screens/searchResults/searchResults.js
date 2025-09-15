@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import React from 'react';
 import Card from '../../Components/Card/Card';
+import Loader from '../../Components/Loader/Loader';
 
 
 class searchResults extends Component{
@@ -26,6 +27,10 @@ class searchResults extends Component{
     }
 
     render() {
+        if (this.state.loading) return <Loader />;
+        if (this.state.error) return <p>Tenemos un error, recarga la página</p>;
+
+
         return(
             <React.Fragment>
                {this.state.loading ? <p>cargando...</p> : this.state.data.map(unPersonaje => <Card data={unPersonaje} />)}
