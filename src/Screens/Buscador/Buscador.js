@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import React from 'react';
-import './Buscador.css';
+
 
 class Buscador extends Component{
     constructor(props) {
@@ -33,3 +33,5 @@ class Buscador extends Component{
     }
 
 }
+
+export default Buscador
