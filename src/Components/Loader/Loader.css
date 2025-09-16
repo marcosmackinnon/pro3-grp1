@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 200px; /* o 60vh si querés centrar en pantalla */
+  min-height: 200px; 
   gap: 8px;
   font-weight: 500;
 }
@@ -14,5 +14,5 @@
   border: 4px solid rgba(0,0,0,0.15);
   border-top-color: rgba(0,0,0,0.6);
   border-radius: 50%;
-  animation: spin 0.9s linear infinite;
+  animation: spin 3s linear infinite;
 }
