@@ -11,6 +11,8 @@ class Card extends Component{
 
         }
     }
+
+
     componentDidMount() {
         console.log(this.props)
 
@@ -26,7 +28,8 @@ class Card extends Component{
                 <div class="cardBody">
                     <h5 class="card-title"> {this.props.data.title}</h5>
                     <p class="card-text">{this.props.data.overview}</p>
-                    <Link to={`/detalle/${this.props.data.id}`} class="btn btn-primary">Ver más</Link>
+                    
+                    '<Link to={`/detalle/${this.props.data.id}`} class="btn btn-primary">Ver más</Link>
                 </div>
             </article>
 

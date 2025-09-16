@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 import ListaCards from "../../Components/ListaCards/ListaCards";
 
 
@@ -54,7 +55,7 @@ class Home extends Component{
 
 
                 
-               
+                <Footer />
                
             </React.Fragment>
 

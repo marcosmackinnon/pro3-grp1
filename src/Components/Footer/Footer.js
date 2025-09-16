@@ -8,7 +8,7 @@ class Footer extends Component {
         <div className="footer-container">
           <p>Integrantes del grupo:</p>
           <ul>
-            <li>Marcos Mackinnom</li>
+            <li>Marcos Mackinnon</li>
             <li>Vicente Pando</li>
             <li>Alfonso Do Amaral</li>
           </ul>
