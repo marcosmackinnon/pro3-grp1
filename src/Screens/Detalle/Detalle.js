@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Card from "../../Components/Card/Card";
 
+let ApiKey = "0d344b0555f945a0cd6729220a53fe40"
+
+
 class Detalle extends Component {
     constructor(props) {
         super(props);

@@ -44,12 +44,12 @@ class Home extends Component{
                 
                 <Header />
                 
-                <h2 class="alert alert-primary"> Popular movies this week</h2>
+                <h2 className="alert alert-primary"> Popular movies this week</h2>
 
                 <ListaCards data = {this.state.pelispopulares.splice(0, 5)}/>
 
 
-                <h2 class="alert alert-primary"> TOP rated movies this week</h2>
+                <h2 className="alert alert-primary"> TOP rated movies this week</h2>
 
                 <ListaCards data = {this.state.pelistop.splice(0, 5)}/>
 
