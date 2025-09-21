@@ -6,6 +6,7 @@ import Home from './Screens/Home/Home';
 import Error404 from './Screens/Error404/Error404';
 import Detalle from "./Screens/Detalle/Detalle";
 import searchResults from './Screens/searchResults/searchResults';
+import VerMas from './Screens/VerMas/VerMas';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route component = {Home} path = '/' exact = {true}/> {/* el component = es la screen que se va a mostrar, no es que significa componente  */}
         <Route component = {Detalle} path = '/detalle/:id' />
         <Route component = {searchResults} path = '/search-results/:query' />
+        <Route component = {VerMas} path = '/vermas/:tipo' />
+
 
         <Route component = {Error404} path = '' />
       </Switch>
