@@ -19,8 +19,6 @@ function App() {
         <Route component = {searchResults} path = '/search-results/:query' />
         <Route component = {VerMas} path = '/vermas/:tipo' />
         <Route component = {Favoritos} path = '/favorites' />
-
-
         <Route component = {Error404} path = '' />
       </Switch>
     </div>
