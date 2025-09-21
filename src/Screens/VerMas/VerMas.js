@@ -14,7 +14,9 @@ class VerMas extends Component{
         this.state = { 
             peliculas: [],
             loading: true,
-            page: 2 //min 39 primer video , y dsp en min 41 lo vuelve a tocar 
+            page: 2, //min 39 primer video , y dsp en min 41 lo vuelve a tocar 
+            peliculasFiltradas: [],
+            textoInput: "" // estado para guardar lo que el usuario escribe en el input, para luego filtrar las peliculas que se muestran en pantalla
 
         }
     }
@@ -41,16 +43,20 @@ class VerMas extends Component{
 
 
     }
-
+    filtro(e){
+        let peliculasFiltradas = this.state.peliculas.filter(unaPeli => unaPeli.title.toLowerCase().includes(e.target.value.toLowerCase())) // filtro el array de pelispopulares, y lo que hago es que me quede solo con las peliculas cuyo titulo (title), incluya lo que el usuario escribio en el input (e.target.value). El toLowerCase es para que no importe si escribio mayuscula o minuscula, lo pase todo a minuscula y compare. 
+        this.setState({peliculasFiltradas: peliculasFiltradas, textoInput:e.target.value}) // actualizo el estado de pelispopulares, con el array filtrado 
+    }
     render(){
+        let peliculasAMostrar = this.state.textoInput == "" ? this.state.peliculas : this.state.peliculasFiltradas // si el estado textoInput (osea lo que el usuario escribio en el input), esta vacio, quiere decir que no esta buscando nada, entonces muestro todas las peliculas (this.state.peliculas). En cambio, si el estado textoInput tiene algo (osea el usuario escribio algo en el input), entonces muestro las peliculas filtradas (this.state.peliculasFiltradas)
         return(
             <React.Fragment> {/* el <React.Fragment> te permite devolver mas de un elemento en el return, react tiene ese problema que sino no te deja */}
                 
                 <Header />
                 
                 <h2 className="alert alert-primary"> ver todas las peliculas: {this.props.match.params.tipo == "popular" ? "populares" : "top rated movies"}</h2>
-
-                {this.state.loading ? <p>Cargando... </p> : <ListaCards data = {this.state.peliculas}/> }
+                <input type="text" placeholder="Buscar..." onChange = {(e) => this.filtro(e)}/>
+                {this.state.loading ? <p>Cargando... </p> : <ListaCards data = {peliculasAMostrar}/> }
 
                 <button onClick = {() => this.cargarMas()} > Cargar mas </button> {/* min 40 primer video*/}
 
