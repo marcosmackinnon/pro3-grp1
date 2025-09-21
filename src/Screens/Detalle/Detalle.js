@@ -9,7 +9,7 @@ class Detalle extends Component {
         super(props);
         this.state = {
             data: {},
-            loading: true,
+            loading: true, //es una propiedad, porque sino se ejecuta primero el return del render y despues el fetch del componentDidMount entonces va a haber un momento donde este cuando estes haciendo el map en el render, va a estar vacio 
         }
     }
 
@@ -20,12 +20,12 @@ class Detalle extends Component {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            this.setState({data: data, loading: false})})
+            this.setState({data: data, loading: false})}) // cuando se termino de buscar el fetch (osea ya tengo los datos), pongo loading en false.
     }
 
     render() {
         return (
-            this.state.loading ? <h1>Cargando...</h1> : <Card data={this.state.data}/>
+            this.state.loading ? <h1>Cargando...</h1> : <Card data={this.state.data}/> // min 25 primer video, significa que si loading es true, muestra "cargando", y si es false, muestra el card con la data que traje del fetch
         )
     }   
         

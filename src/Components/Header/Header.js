@@ -34,11 +34,12 @@ class Header extends Component{
                         <Link className="nav-link" to="/series">Series</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/favorites">Favoritas</Link>
+                        <Link className="nav-link" to="/favorites">Favoritos</Link>
                     </li>
                 </ul>
 
             <Formulario />
+
             </nav>
             
 
