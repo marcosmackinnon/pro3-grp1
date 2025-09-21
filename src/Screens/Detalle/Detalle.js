@@ -16,7 +16,7 @@ class Detalle extends Component {
     componentDidMount() {
         console.log(this.props)
 
-        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}`)
+        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${ApiKey}`) // min 49 primer video 
         .then(res => res.json())
         .then(data => {
             console.log(data);
