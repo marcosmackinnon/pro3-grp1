@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Card from "../../Components/Card/Card";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 let ApiKey = "0d344b0555f945a0cd6729220a53fe40"
 
@@ -25,7 +27,30 @@ class Detalle extends Component {
 
     render() {
         return (
-            this.state.loading ? <h1>Cargando...</h1> : <Card data={this.state.data}/> // min 25 primer video, significa que si loading es true, muestra "cargando", y si es false, muestra el card con la data que traje del fetch
+            this.state.loading ? <h1>Cargando...</h1> : 
+            <React.Fragment> 
+                < Header />
+
+                <h2 class="alert alert-primary"> {this.state.data.title} </h2>
+        <section class="row">
+            <img class="col-md-6" src={`https://image.tmdb.org/t/p/w500${this.state.data.poster_path}`} alt=""/>
+            <section class="col-md-6 info">
+                <h3>Descripción</h3>
+                <p class="description">{this.state.data.overview}</p>
+                <p class="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.state.data.release_date}</p>
+                <p class="mt-0 mb-0 length"><strong>Duración:</strong> {this.state.data.runtime}</p>
+                <p class="mt-0" id="votes"><strong>Puntuación:</strong> {this.state.data.vote_average}</p>
+            </section>
+        </section>
+
+
+
+                < Footer />
+
+
+
+
+            </React.Fragment> // min 25 primer video, significa que si loading es true, muestra "cargando", y si es false, muestra el card con la data que traje del fetch
         )
     }   
         
