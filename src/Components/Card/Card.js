@@ -19,11 +19,13 @@ class Card extends Component {
     componentDidMount() {
         console.log(this.props) // muestro en la consola, el array con la info de cada pelicula, y luego en la linea 29 por ej, accedo a cada titulo de al pelicula, poniendo this.props.data.title. Asi con cada 
         let favoritos = localStorage.getItem("favoritos") //traigo lo que ya tenia en favoritos
+
         if (favoritos == null) { // si no habia nada en favoritos, creo un array vacio 
             favoritos = []
         } else { // si ya habia algo en favoritos, lo paso de string a array 
             favoritos = JSON.parse(favoritos)
         }
+
         if (favoritos.includes(this.props.data.id)) {
 
             this.setState({ textoFavoritos: "sacar de favoritos" }) // cambio el texto del boton 
@@ -42,7 +44,12 @@ class Card extends Component {
             favoritos = JSON.parse(favoritos)
         }
         if (favoritos.includes(this.props.data.id)) {
-            favoritos = favoritos.filter(unId => unId != this.props.data.id) // si ya estaba en favoritos, lo saco (lo filtro)
+            favoritos = favoritos.filter(unId => unId !== this.props.data.id) // si ya estaba en favoritos, lo saco (lo filtro)
+
+            if (this.props.quitarFavoritos) { 
+                this.props.quitarFavoritos(this.props.data.id)
+            }
+
             this.setState({ textoFavoritos: "agregar a favoritos" }) // cambio el texto del boton 
         } else {
             favoritos.push(this.props.data.id) // si no estaba en favoritos, lo agrego 
