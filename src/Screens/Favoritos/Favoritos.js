@@ -18,14 +18,14 @@ class Favoritos extends Component {
     }
 
     componentDidMount() {
-        let favoritos = localStorage.getItem("favoritos") //traigo lo que ya tenia en favoritos
-        if (favoritos == null) { // si no habia nada en favoritos, creo un array vacio 
+        let favoritos = localStorage.getItem("favoritos") 
+        if (favoritos == null) { 
             favoritos = []
-        } else { // si ya habia algo en favoritos, lo paso de string a array 
+        } else { 
             favoritos = JSON.parse(favoritos)
         }
         favoritos.map(id => {
-            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${ApiKey}`) // min 49 primer video 
+            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${ApiKey}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
@@ -67,8 +67,8 @@ class Favoritos extends Component {
                         {this.state.data.map(peli => (
                             <Card
                                 key={peli.id}
-                                data={peli}  // le paso por props, la data de cada pelicula
-                                quitarFavoritos={() => this.quitarFavoritos(peli.id)} // le paso por props, la funcion que va a ejecutar cuando haga click en el boton de "sacar de favoritos"
+                                data={peli}  
+                                quitarFavoritos={() => this.quitarFavoritos(peli.id)} 
                             />
                         ))}
                     </div>
@@ -80,7 +80,7 @@ class Favoritos extends Component {
 
 
 
-            </React.Fragment> // min 25 primer video, significa que si loading es true, muestra "cargando", y si es false, muestra el card con la data que traje del fetch
+            </React.Fragment>
         )
     }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "../../Components/Card/Card";
+
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
@@ -11,49 +11,49 @@ class Detalle extends Component {
         super(props);
         this.state = {
             data: {},
-            loading: true, //es una propiedad, porque sino se ejecuta primero el return del render y despues el fetch del componentDidMount entonces va a haber un momento donde este cuando estes haciendo el map en el render, va a estar vacio 
+            loading: true, 
             textoFavoritos: "agregar a favoritos" 
         }
     }
 
     componentDidMount() {
         console.log(this.props)
-        let favoritos = localStorage.getItem("favoritos") //traigo lo que ya tenia en favoritos
-        if(favoritos == null){ // si no habia nada en favoritos, creo un array vacio 
+        let favoritos = localStorage.getItem("favoritos") 
+        if(favoritos == null){ 
             favoritos = []
-        }else{ // si ya habia algo en favoritos, lo paso de string a array 
+        }else{ 
             favoritos = JSON.parse(favoritos)
         }
         if(favoritos.includes(this.props.match.params.id)){ 
             
-            this.setState({textoFavoritos: "sacar de favoritos"}) // cambio el texto del boton 
+            this.setState({textoFavoritos: "sacar de favoritos"}) 
         }else{
             
-            this.setState({textoFavoritos: "agregar a favoritos"}) // cambio el texto del boton 
+            this.setState({textoFavoritos: "agregar a favoritos"})
         }
-        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${ApiKey}`) // min 49 primer video 
+        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${ApiKey}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            this.setState({data: data, loading: false})}) // cuando se termino de buscar el fetch (osea ya tengo los datos), pongo loading en false.
+            this.setState({data: data, loading: false})}) 
     }
     manejarFavoritos(){
-        let favoritos = localStorage.getItem("favoritos") //traigo lo que ya tenia en favoritos
-        if(favoritos == null){ // si no habia nada en favoritos, creo un array vacio 
+        let favoritos = localStorage.getItem("favoritos") 
+        if(favoritos == null){
             favoritos = []
-        }else{ // si ya habia algo en favoritos, lo paso de string a array 
+        }else{ 
             favoritos = JSON.parse(favoritos)
         }
         if(favoritos.includes(this.props.match.params.id)){ 
-            favoritos = favoritos.filter(unId => unId != this.props.match.params.id) // si ya estaba en favoritos, lo saco (lo filtro)
-            this.setState({textoFavoritos: "agregar a favoritos"}) // cambio el texto del boton 
+            favoritos = favoritos.filter(unId => unId != this.props.match.params.id) 
+            this.setState({textoFavoritos: "agregar a favoritos"}) 
         }else{
-            favoritos.push(this.props.match.params.id) // si no estaba en favoritos, lo agrego 
-            this.setState({textoFavoritos: "sacar de favoritos"}) // cambio el texto del boton 
+            favoritos.push(this.props.match.params.id) 
+            this.setState({textoFavoritos: "sacar de favoritos"}) 
         }
         console.log(favoritos)
-        favoritos = JSON.stringify(favoritos) // paso el array a string para guardarlo en el localStorage 
-        localStorage.setItem("favoritos", favoritos) // actualizo el localStorage con el array actualizado
+        favoritos = JSON.stringify(favoritos) 
+        localStorage.setItem("favoritos", favoritos) 
     }
     render() {
         return (
@@ -81,7 +81,7 @@ class Detalle extends Component {
 
 
 
-            </React.Fragment> // min 25 primer video, significa que si loading es true, muestra "cargando", y si es false, muestra el card con la data que traje del fetch
+            </React.Fragment> 
         )
     }   
         

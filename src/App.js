@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       
       <Switch>
-        <Route component = {Home} path = '/' exact = {true}/> {/* el component = es la screen que se va a mostrar, no es que significa componente  */}
+        <Route component = {Home} path = '/' exact = {true}/> 
         <Route component = {Detalle} path = '/detalle/:id' />
         <Route component = {searchResults} path = '/search-results/:query' />
         <Route component = {VerMas} path = '/vermas/:tipo' />
