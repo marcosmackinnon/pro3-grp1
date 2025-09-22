@@ -52,14 +52,14 @@ class Home extends Component{
                 
                 <Link to= "/vermas/popular"> <button className="btn btn-primary mb-3"> Ver mas </button> </Link> 
                  
-                <ListaCards data = {this.state.pelispopulares.slice(0, 5)}/> {/* esto de .splice(0, 5) lo hago para que no se muestren las 20 peliculas, y se vean solo 5  */}
+                <ListaCards data = {this.state.pelispopulares.splice(0, 5)}/> {/* esto de .splice(0, 5) lo hago para que no se muestren las 20 peliculas, y se vean solo 5  */}
 
 
                 <h2 className="alert alert-primary"> TOP rated movies this week</h2> {/* esto seria la "segunda seccion" que hay en el home  */}
                 
                 <Link to= "/vermas/top_rated"> <button className="btn btn-primary mb-3"> Ver mas </button> </Link>  
 
-                <ListaCards data = {this.state.pelistop.slice(0, 5)}/> {/* uso pelistop que defini en el setState de la linea 35 en vez de pelispopulares  */}
+                <ListaCards data = {this.state.pelistop.splice(0, 5)}/> {/* uso pelistop que defini en el setState de la linea 35 en vez de pelispopulares  */}
 
 
 
